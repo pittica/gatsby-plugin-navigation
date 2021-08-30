@@ -1,0 +1,65 @@
+{
+  "name": "@pittica/gatsby-plugin-navigation",
+  "private": false,
+  "description": "Navigation components for GatsbyJS.",
+  "version": "0.9.0",
+  "author": {
+    "name": "Lucio Benini",
+    "email": "info@pittica.com",
+    "url": "https://pittica.com"
+  },
+  "bugs": {
+    "url": "https://github.com/pittica/gatsby-plugin-navigation/issues"
+  },
+  "deprecated": false,
+  "homepage": "https://github.com/pittica/gatsby-plugin-navigation",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "navigation"
+  ],
+  "dependencies": {
+    "gatsby": "^3.12.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^4.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.5"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pittica/gatsby-plugin-navigation.git"
+  },
+  "config": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "react-scripts test",
+    "prepare": "rimraf ./dist && mkdirp ./dist && babel src --out-dir dist --copy-files"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/env",
+        {
+          "targets": {
+            "edge": "17",
+            "firefox": "60",
+            "chrome": "67",
+            "safari": "11.1"
+          }
+        }
+      ],
+      "@babel/preset-react"
+    ]
+  }
+}
