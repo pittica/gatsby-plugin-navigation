@@ -1,16 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import classnames from "classnames"
+import classNames from "classnames"
 
-export default function PaginationItem({
-  group,
-  slug,
-  page,
-  current,
-  rel,
-  children,
-}) {
+export default function Item({ group, slug, page, current, rel, children }) {
   let link = ""
 
   if (group) {
@@ -29,11 +22,11 @@ export default function PaginationItem({
     <li>
       <Link
         to={link}
-        className={classnames("pagination-link", {
+        className={classNames("pagination-link", {
           "is-current": current === page,
         })}
-        ariaLabel={children || page}
-        ariaCurrent={current === page ? "page" : null}
+        aria-label={children || page}
+        aria-current={current === page ? "page" : null}
         rel={rel}
       >
         {children || page}
@@ -42,16 +35,16 @@ export default function PaginationItem({
   )
 }
 
-PaginationItem.propTypes = {
+Item.propTypes = {
   group: PropTypes.string,
   slug: PropTypes.string,
   current: PropTypes.number.isRequired,
   page: PropTypes.number.isRequired,
   rel: PropTypes.string,
-  children: PropTypes.any,
+  children: PropTypes.string,
 }
 
-PaginationItem.defaultProps = {
+Item.defaultProps = {
   current: 0,
   page: 0,
 }
