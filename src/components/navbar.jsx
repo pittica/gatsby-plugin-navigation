@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import classNames from "classnames"
 
-import Chuck from "./navbar/chuck"
+import Chunk from "./navbar/chunk"
 
 export default function Navbar({
   location,
@@ -49,12 +49,12 @@ export default function Navbar({
           "is-active": active,
         })}
       >
-        <Chuck
+        <Chunk
           className="navbar-start"
           items={startItems}
           location={location}
         />
-        <Chuck className="navbar-end" items={endItems} location={location} />
+        <Chunk className="navbar-end" items={endItems} location={location} />
       </div>
     </nav>
   )
