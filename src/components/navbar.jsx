@@ -3,9 +3,15 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import classNames from "classnames"
 
-import Item from "./navbar/item"
+import Chuck from "./navbar/chuck"
 
-export default function Navbar({ location, className, items, children }) {
+export default function Navbar({
+  location,
+  className,
+  startItems,
+  endItems,
+  children,
+}) {
   const [active, setActive] = useState(false)
 
   return (
@@ -43,20 +49,12 @@ export default function Navbar({ location, className, items, children }) {
           "is-active": active,
         })}
       >
-        {items.length > 0 && (
-          <div className="navbar-start">
-            {items.map(({ to, href, label }, i) => (
-              <Item
-                to={to}
-                href={href}
-                location={location}
-                key={`navbar-start-item-${i}`}
-              >
-                {label}
-              </Item>
-            ))}
-          </div>
-        )}
+        <Chuck
+          className="navbar-start"
+          items={startItems}
+          location={location}
+        />
+        <Chuck className="navbar-end" items={endItems} location={location} />
       </div>
     </nav>
   )
@@ -65,10 +63,12 @@ export default function Navbar({ location, className, items, children }) {
 Navbar.propTypes = {
   location: PropTypes.object,
   className: PropTypes.string,
-  items: PropTypes.array.isRequired,
+  startItems: PropTypes.array.isRequired,
+  endItems: PropTypes.array.isRequired,
   children: PropTypes.any,
 }
 
 Navbar.defaultProps = {
-  items: [],
+  startItems: [],
+  endItems: [],
 }
