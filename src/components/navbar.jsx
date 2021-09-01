@@ -11,6 +11,7 @@ export default function Navbar({
   startItems,
   endItems,
   children,
+  link,
 }) {
   const [active, setActive] = useState(false)
 
@@ -21,28 +22,31 @@ export default function Navbar({
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <Link to="/" className="navbar-logo">
+        <Link to={link} className="navbar-logo">
           {children}
         </Link>
-        <Link
-          to="/"
-          onClick={(e) => {
-            e.preventDefault()
-            setActive(!active)
+        {startItems.length > 0 ||
+          (endItems.length > 0 && (
+            <Link
+              to={link}
+              onClick={(e) => {
+                e.preventDefault()
+                setActive(!active)
 
-            return false
-          }}
-          role="button"
-          className={classNames("navbar-burger", "burger", {
-            "is-active": active,
-          })}
-          aria-label="menu"
-          aria-expanded="false"
-        >
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-        </Link>
+                return false
+              }}
+              role="button"
+              className={classNames("navbar-burger", "burger", {
+                "is-active": active,
+              })}
+              aria-label="menu"
+              aria-expanded="false"
+            >
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+            </Link>
+          ))}
       </div>
       <div
         className={classNames("navbar-menu", {
@@ -66,9 +70,11 @@ Navbar.propTypes = {
   startItems: PropTypes.array.isRequired,
   endItems: PropTypes.array.isRequired,
   children: PropTypes.any,
+  link: PropTypes.string.isRequired,
 }
 
 Navbar.defaultProps = {
   startItems: [],
   endItems: [],
+  link: "/",
 }
