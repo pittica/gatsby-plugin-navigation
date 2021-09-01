@@ -22,4 +22,4 @@ npm install @pittica/gatsby-plugin-navigation
 
 ## Copyright
 
-(c) 2021, Pittaca S.r.l.s.
+(c) 2021, Pittica S.r.l.s.
