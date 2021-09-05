@@ -25,28 +25,27 @@ export default function Navbar({
         <Link to={link} className="navbar-logo">
           {children}
         </Link>
-        {startItems.length > 0 ||
-          (endItems.length > 0 && (
-            <Link
-              to={link}
-              onClick={(e) => {
-                e.preventDefault()
-                setActive(!active)
+        {(startItems.length > 0 || endItems.length > 0) && (
+          <Link
+            to={link}
+            onClick={(e) => {
+              e.preventDefault()
+              setActive(!active)
 
-                return false
-              }}
-              role="button"
-              className={classNames("navbar-burger", "burger", {
-                "is-active": active,
-              })}
-              aria-label="menu"
-              aria-expanded="false"
-            >
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-            </Link>
-          ))}
+              return false
+            }}
+            role="button"
+            className={classNames("navbar-burger", "burger", {
+              "is-active": active,
+            })}
+            aria-label="menu"
+            aria-expanded="false"
+          >
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </Link>
+        )}
       </div>
       <div
         className={classNames("navbar-menu", {
