@@ -10,7 +10,7 @@ export default function Chunk({ className, items, location }) {
         {items.map((item, i) => (
           <Item
             to={item.to}
-            href={item.href}
+            link={item.link}
             location={location}
             key={`navbar-item-${i}`}
             className={item.className}
