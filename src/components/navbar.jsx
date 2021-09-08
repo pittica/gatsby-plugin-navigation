@@ -20,6 +20,8 @@ export default function Navbar({
       className={classNames("navbar", className)}
       role="navigation"
       aria-label="main navigation"
+      itemScope={true}
+      itemType="http://schema.org/SiteNavigationElement"
     >
       <div className="navbar-brand">
         <Link to={link} className="navbar-logo">
