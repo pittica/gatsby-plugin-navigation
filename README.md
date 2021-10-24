@@ -3,8 +3,8 @@
 ![License](https://img.shields.io/github/license/pittica/gatsby-plugin-navigation)
 ![Version](https://img.shields.io/github/package-json/v/pittica/gatsby-plugin-navigation)
 ![Release](https://img.shields.io/github/v/release/pittica/gatsby-plugin-navigation)
-![GitHub package.json dependency version](https://img.shields.io/github/package-json/dependency-version/pittica/gatsby-plugin-navigation/gatsby)
-![GitHub package.json dependency version](https://img.shields.io/github/package-json/dependency-version/pittica/gatsby-plugin-navigation/react)
+![React version](https://img.shields.io/github/package-json/dependency-version/pittica/gatsby-plugin-navigation/react)
+![Gatsby version](https://img.shields.io/npm/dependency-version/@pittica/gatsby-plugin-navigation/peer/gatsby)
 
 ## Description
 
@@ -22,4 +22,4 @@ npm install @pittica/gatsby-plugin-navigation
 
 ## Copyright
 
-(c) 2021, Pittica S.r.l.s.
+(c) 2021, Pittica S.r.l.

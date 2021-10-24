@@ -25,7 +25,7 @@ function getItems({ pages, current }) {
 }
 
 export default function Pagination({ context, className }) {
-  if (context.pages > 0) {
+  if (context.pages > 1) {
     const items = getItems(context)
 
     return (
@@ -53,7 +53,7 @@ export default function Pagination({ context, className }) {
               />
             ))}
           {context.current < context.pages - 2 && <Ellipsis />}
-          {context.pages > 1 && (
+          {context.pages > 2 && (
             <Item
               group={context.group}
               slug={context.slug}
