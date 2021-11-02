@@ -9,7 +9,7 @@ export default function Pagination({
   context: { group, slug, pages, current },
   className,
 }) {
-  if (pages > 0) {
+  if (pages > 1) {
     const items = []
     const start = Math.max(1, current - 2)
     const stop = Math.min(current + 2, pages - 1)
