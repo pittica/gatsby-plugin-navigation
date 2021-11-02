@@ -5,28 +5,28 @@ import classNames from "classnames"
 import Ellipsis from "./pagination/ellipsis"
 import Item from "./pagination/item"
 
-function getItems({ pages, current }) {
-  const items = []
+export default function Pagination({
+  context: { group, slug, pages, current },
+  className,
+}) {
+  if (pages > 0) {
+    const items = []
+    const start = Math.max(1, current - 2)
+    const stop = Math.min(current + 2, pages - 1)
 
-  for (let i = 0; i < pages; i++) {
-    const page = i + 1
-
-    if (
-      page !== 1 &&
-      page !== pages &&
-      page < current + 2 &&
-      page > current - 2
-    ) {
-      items.push(page)
+    if (pages > 2) {
+      for (let i = start; i < stop; i++) {
+        items.push(
+          <Item
+            group={group}
+            slug={slug}
+            current={current}
+            page={i + 1}
+            key={`pagination-item-${i}`}
+          />
+        )
+      }
     }
-  }
-
-  return items
-}
-
-export default function Pagination({ context, className }) {
-  if (context.pages > 1) {
-    const items = getItems(context)
 
     return (
       <nav
@@ -35,31 +35,12 @@ export default function Pagination({ context, className }) {
         aria-label="pagination"
       >
         <ul className="pagination-list">
-          <Item
-            group={context.group}
-            slug={context.slug}
-            current={context.current}
-            page={1}
-          />
-          {context.current > 3 && <Ellipsis />}
-          {items.length > 0 &&
-            items.map((page) => (
-              <Item
-                group={context.group}
-                slug={context.slug}
-                current={context.current}
-                page={page}
-                key={`pagination-item-${page}`}
-              />
-            ))}
-          {context.current < context.pages - 2 && <Ellipsis />}
-          {context.pages > 2 && (
-            <Item
-              group={context.group}
-              slug={context.slug}
-              current={context.current}
-              page={context.pages}
-            />
+          <Item group={group} slug={slug} current={current} page={1} />
+          {start > 1 && <Ellipsis />}
+          {items}
+          {stop < pages - 1 && <Ellipsis />}
+          {pages > 1 && (
+            <Item group={group} slug={slug} current={current} page={pages} />
           )}
         </ul>
       </nav>
