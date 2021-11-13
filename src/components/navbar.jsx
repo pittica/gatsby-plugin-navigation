@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import classNames from "classnames"
 
 import Chunk from "./navbar/chunk"
+import Logo from "./navbar/logo"
 
 export default function Navbar({
   location,
@@ -12,6 +13,10 @@ export default function Navbar({
   endItems,
   children,
   link,
+  logoImage,
+  logoWidth,
+  logoHeight,
+  title,
 }) {
   const [active, setActive] = useState(false)
 
@@ -24,9 +29,14 @@ export default function Navbar({
       itemType="http://schema.org/SiteNavigationElement"
     >
       <div className="navbar-brand">
-        <Link to={link} className="navbar-logo">
-          {children}
-        </Link>
+        <Logo
+          image={logoImage}
+          title={title}
+          width={logoWidth}
+          height={logoHeight}
+          link={link}
+        />
+        {children}
         {(startItems.length > 0 || endItems.length > 0) && (
           <Link
             to={link}
@@ -72,6 +82,10 @@ Navbar.propTypes = {
   endItems: PropTypes.array.isRequired,
   children: PropTypes.any,
   link: PropTypes.string.isRequired,
+  logoImage: PropTypes.string,
+  logoWidth: PropTypes.number,
+  logoHeight: PropTypes.number,
+  title: PropTypes.string,
 }
 
 Navbar.defaultProps = {
