@@ -2,7 +2,7 @@
   "name": "@pittica/gatsby-plugin-navigation",
   "private": false,
   "description": "Navigation components for GatsbyJS.",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "author": {
     "name": "Lucio Benini",
     "email": "info@pittica.com",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
-    "babel-preset-gatsby-package": "^2.0.0",
+    "babel-preset-gatsby-package": "^2.1.0",
     "react-scripts": "^4.0.3"
   },
   "peerDependencies": {

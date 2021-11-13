@@ -3,7 +3,16 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import classNames from "classnames"
 
-export default function Item({ children, to, link, location, className }) {
+import Label from "./label"
+
+export default function Item({
+  children,
+  to,
+  link,
+  location,
+  className,
+  icon,
+}) {
   if (to) {
     return (
       <Link
@@ -16,7 +25,7 @@ export default function Item({ children, to, link, location, className }) {
           className
         )}
       >
-        <span>{children}</span>
+        <Label icon={icon}>{children}</Label>
       </Link>
     )
   } else {
@@ -31,7 +40,7 @@ export default function Item({ children, to, link, location, className }) {
           className
         )}
       >
-        <span>{children}</span>
+        <Label icon={icon}>{children}</Label>
       </a>
     )
   }
@@ -43,4 +52,5 @@ Item.propTypes = {
   location: PropTypes.object,
   children: PropTypes.any.isRequired,
   className: PropTypes.string,
+  icon: PropTypes.string,
 }

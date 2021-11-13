@@ -7,15 +7,16 @@ export default function Chunk({ className, items, location }) {
   if (items.length > 0) {
     return (
       <div className={className}>
-        {items.map((item, i) => (
+        {items.map(({ to, link, className, label, icon }, i) => (
           <Item
-            to={item.to}
-            link={item.link}
+            to={to}
+            link={link}
             location={location}
             key={`navbar-item-${i}`}
-            className={item.className}
+            className={className}
+            icon={icon}
           >
-            {item.label}
+            {label}
           </Item>
         ))}
       </div>
