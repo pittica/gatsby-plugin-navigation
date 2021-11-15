@@ -1,11 +1,11 @@
-import React from "react"
+import React, { Fragment } from "react"
 import PropTypes from "prop-types"
 
 export default function Image({ title, image, width, height }) {
   if (image) {
     return <img src={image} alt={title} width={width} height={height} />
   } else {
-    return title
+    return <Fragment>{title}</Fragment>
   }
 }
 

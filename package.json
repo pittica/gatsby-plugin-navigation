@@ -2,7 +2,7 @@
   "name": "@pittica/gatsby-plugin-navigation",
   "private": false,
   "description": "Navigation components for GatsbyJS.",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": {
     "name": "Lucio Benini",
     "email": "info@pittica.com",
