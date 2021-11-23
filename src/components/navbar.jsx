@@ -29,13 +29,15 @@ export default function Navbar({
       itemType="http://schema.org/SiteNavigationElement"
     >
       <div className="navbar-brand">
-        <Logo
-          image={logoImage}
-          title={title}
-          width={logoWidth}
-          height={logoHeight}
-          link={link}
-        />
+        {logoImage && (
+          <Logo
+            image={logoImage}
+            title={title}
+            width={logoWidth}
+            height={logoHeight}
+            link={link}
+          />
+        )}
         {children}
         {(startItems.length > 0 || endItems.length > 0) && (
           <Link
