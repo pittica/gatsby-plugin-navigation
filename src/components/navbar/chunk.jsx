@@ -7,18 +7,26 @@ export default function Chunk({ className, items, location }) {
   if (items.length > 0) {
     return (
       <div className={className}>
-        {items.map(({ to, link, className, label, icon }, i) => (
-          <Item
-            to={to}
-            link={link}
-            location={location}
-            key={`navbar-item-${i}`}
-            className={className}
-            icon={icon}
-          >
-            {label}
-          </Item>
-        ))}
+        {items.map((item, i) => {
+          if (typeof item.$$typeof === "symbol") {
+            return item
+          } else {
+            const { to, link, className, label, icon } = item
+
+            return (
+              <Item
+                to={to}
+                link={link}
+                location={location}
+                key={`navbar-item-${i}`}
+                className={className}
+                icon={icon}
+              >
+                {label}
+              </Item>
+            )
+          }
+        })}
       </div>
     )
   } else {
