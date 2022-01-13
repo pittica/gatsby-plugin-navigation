@@ -11,7 +11,7 @@ export default function Chunk({ className, items, location }) {
           if (typeof item.$$typeof === "symbol") {
             return item
           } else {
-            const { to, link, className, label, icon } = item
+            const { to, link, className, label, icon, onClick } = item
 
             return (
               <Item
@@ -21,6 +21,7 @@ export default function Chunk({ className, items, location }) {
                 key={`navbar-item-${i}`}
                 className={className}
                 icon={icon}
+                onClick={onClick}
               >
                 {label}
               </Item>

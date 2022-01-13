@@ -12,6 +12,7 @@ export default function Item({
   location,
   className,
   icon,
+  onClick,
 }) {
   if (to) {
     return (
@@ -24,6 +25,7 @@ export default function Item({
           },
           className
         )}
+        onClick={onClick}
       >
         <Label icon={icon}>{children}</Label>
       </Link>
@@ -39,6 +41,7 @@ export default function Item({
           },
           className
         )}
+        onClick={onClick}
       >
         <Label icon={icon}>{children}</Label>
       </a>
@@ -53,4 +56,5 @@ Item.propTypes = {
   children: PropTypes.any.isRequired,
   className: PropTypes.string,
   icon: PropTypes.string,
+  onClick: PropTypes.func,
 }
