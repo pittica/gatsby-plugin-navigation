@@ -25,13 +25,13 @@ export default function Item({ group, slug, title, icon, previous, children }) {
     >
       {children}
       {previous ? (
-        <>
+        <span>
           <i className={icon} /> {title}
-        </>
+        </span>
       ) : (
-        <>
+        <span>
           {title} <i className={icon} />
-        </>
+        </span>
       )}
     </Link>
   )
