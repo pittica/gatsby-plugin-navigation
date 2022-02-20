@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import classNames from "classnames"
 
-export default function Item({ group, slug, title, icon, previous }) {
+export default function Item({ group, slug, title, icon, previous, children }) {
   let link = ""
 
   if (group) {
@@ -23,6 +23,7 @@ export default function Item({ group, slug, title, icon, previous }) {
       })}
       rel={previous ? "prev" : "next"}
     >
+      {children}
       {previous ? (
         <>
           <i className={icon} /> {title}
@@ -42,6 +43,7 @@ Item.propTypes = {
   title: PropTypes.string,
   icon: PropTypes.string,
   previous: PropTypes.bool.isRequired,
+  children: PropTypes.any,
 }
 
 Item.defaultProps = {
