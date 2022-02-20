@@ -13,6 +13,8 @@ export default function Post({
   iconPrevious,
   innerNext,
   innerPrevious,
+  styleNext,
+  stylePrevious,
 }) {
   if (previous || next) {
     return (
@@ -28,6 +30,7 @@ export default function Post({
             icon={iconPrevious}
             previous={true}
             title={previous.title}
+            style={stylePrevious}
           >
             {innerPrevious}
           </Item>
@@ -39,6 +42,7 @@ export default function Post({
             icon={iconNext}
             previous={false}
             title={next.title}
+            style={styleNext}
           >
             {innerNext}
           </Item>
@@ -59,4 +63,6 @@ Post.propTypes = {
   iconPrevious: PropTypes.string,
   innerNext: PropTypes.any,
   innerPrevious: PropTypes.any,
+  styleNext: PropTypes.object,
+  stylePrevious: PropTypes.object,
 }

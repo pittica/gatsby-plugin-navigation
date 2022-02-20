@@ -3,7 +3,15 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import classNames from "classnames"
 
-export default function Item({ group, slug, title, icon, previous, children }) {
+export default function Item({
+  group,
+  slug,
+  title,
+  icon,
+  previous,
+  style,
+  children,
+}) {
   let link = ""
 
   if (group) {
@@ -22,6 +30,7 @@ export default function Item({ group, slug, title, icon, previous, children }) {
         "pagination-next": !previous,
       })}
       rel={previous ? "prev" : "next"}
+      style={style}
     >
       {children}
       {previous ? (
@@ -43,6 +52,7 @@ Item.propTypes = {
   title: PropTypes.string,
   icon: PropTypes.string,
   previous: PropTypes.bool.isRequired,
+  style: PropTypes.object,
   children: PropTypes.any,
 }
 
