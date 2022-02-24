@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import classNames from "classnames"
@@ -34,13 +34,15 @@ export default function Item({
     >
       {children}
       {previous ? (
-        <span>
-          <i className={icon} /> {title}
-        </span>
+        <Fragment>
+          <i className={icon} />
+          <span>{title}</span>
+        </Fragment>
       ) : (
-        <span>
-          {title} <i className={icon} />
-        </span>
+        <Fragment>
+          <span>{title}</span>
+          <i className={icon} />
+        </Fragment>
       )}
     </Link>
   )
